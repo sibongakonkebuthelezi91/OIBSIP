@@ -7,17 +7,29 @@ public class clientInfo {
     private String surname;
     private String email;
     private LocalDate birthDate;
-    private String gender;
     private char Initial;
+    private String password;
+    private String city;
+    private String country;
 
-    public  clientInfo(String name, String surname, String email, LocalDate birthDate, String gender) {
+    public  clientInfo(String name,
+                       String surname,
+                       String email,
+                       LocalDate birthDate,
+                       String password,
+                       String city,
+                       String country) {
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.birthDate = birthDate;
-        this.gender = gender;
+        this.password = password;
+        this.city = city;
+        this.country = country;
     }
 
+
+    public clientInfo(){}
 
     public String getName() {
         return name;
@@ -51,13 +63,8 @@ public class clientInfo {
         this.email = email;
     }
 
-    public String getGender() {
-        return gender;
-    }
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+
 
     public char getInitial() {
         return Initial;

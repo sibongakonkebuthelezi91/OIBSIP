@@ -12,4 +12,10 @@ class PnrNumberTest {
         assertInstanceOf(String.class, pnr);
     }
 
+    @Test
+    void lengthIsSix(){
+        String pnr = PnrNumber.pnrNumberGenerate();
+        assertEquals(6, pnr.length());
+    }
+
 }

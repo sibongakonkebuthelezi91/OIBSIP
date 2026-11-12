@@ -62,10 +62,19 @@ public class ClientAuth {
         }
 
         if ( password.matches("[a-z]+")){
-
+            System.out.println("Password should atleast contain 1 Lowercase character");
+            return false;
         }
-        boolean upperCase = password.matches("[A-Z]+");
-        boolean symbol = password.matches(".*[@$!%*?&#_-].*");
-        return digits & alphabets & upperCase;
+
+        if (password.matches("[A-Z]+")){
+            System.out.println("Password should atleast contain 1 Uppercase character");
+        }
+
+        if(password.matches(".*[@$!%*?&#_-].*")){
+            System.out.println("Password should atleast contain 1 special character");
+            return false;
+        }
+
+        return true;
     }
 }

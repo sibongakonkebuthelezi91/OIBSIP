@@ -56,18 +56,18 @@ public class ClientAuth {
             System.out.println("Password should be atleast 8 characters long");
             return false;
         }
-        if (client.getPassword().matches("\\d+")){
+        if (!client.getPassword().matches("\\d+")){
             System.out.println("Password should contain atleast 1 digit");
             return false;
         }
-        if ( client.getPassword().matches("[a-z]+")){
+        if (!client.getPassword().matches("[a-z]+")){
             System.out.println("Password should atleast contain 1 Lowercase character");
             return false;
         }
-        if (client.getPassword().matches("[A-Z]+")){
+        if (!client.getPassword().matches("[A-Z]+")){
             System.out.println("Password should atleast contain 1 Uppercase character");
         }
-        if(client.getPassword().matches(".*[@$!%*?&#_-].*")){
+        if(!client.getPassword().matches(".*[@$!%*?&#_-].*")){
             System.out.println("Password should atleast contain 1 special character");
             return false;
         }

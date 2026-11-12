@@ -48,15 +48,40 @@
 
 ```mermaid
    erDiagram
-       User }|..|{ Booking : makes
+       User ||--o{ Booking : makes
+       Trip ||--o{ Booking : "booking trips"
+       transport ||--o{ Trip : "mode and capacity"
        
        User{
-           user_id int Pk
-           name varchar(50)
-           surname varchar(50)
-           email varchar(100)
-           password varchar
-           
+           user_id int PK
+           varchar(50) name
+           varchar(50) surname 
+           isbn email
+           varchar(100) password 
+       }
+       
+       Trip{
+           trip_id int PK
+           transport_id int FK
+           location varchar
+           destination vachar
+           departure datetime
+       }
+       
+       Booking{ 
+           int booking_id  PK
+           int user_id FK
+           int trip_id FK
+           varchar booking_reference
+           timestamp datetime
+           enum status "booked | cancelled"
+       }
+       
+       Transport{
+           transport_id int pk
+           mode varchar 
+           total_seats int 
+           price float 
        }
 
 ```

@@ -6,26 +6,14 @@ public class clientInfo {
     private String name;
     private String surname;
     private String email;
-    private LocalDate birthDate;
-    private char Initial;
     private String password;
-    private String city;
-    private String country;
 
-    public  clientInfo(String name,
-                       String surname,
-                       String email,
-                       LocalDate birthDate,
-                       String password,
-                       String city,
-                       String country) {
+    public  clientInfo(String name,String surname,String email,String password){
+
         this.name = name;
         this.surname = surname;
         this.email = email;
-        this.birthDate = birthDate;
         this.password = password;
-        this.city = city;
-        this.country = country;
     }
 
 
@@ -47,12 +35,12 @@ public class clientInfo {
         this.surname = surname;
     }
 
-    public LocalDate getBirthDate() {
-        return birthDate;
+    public String getPassword() {
+        return password;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
@@ -63,14 +51,4 @@ public class clientInfo {
         this.email = email;
     }
 
-
-
-
-    public char getInitial() {
-        return Initial;
-    }
-
-    public void setInitial(char initial) {
-        Initial = initial;
-    }
 }

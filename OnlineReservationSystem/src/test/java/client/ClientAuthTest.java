@@ -25,6 +25,15 @@ class ClientAuthTest {
     void breakIt(){
         System.setOut(System.out);
     }
+
+    @Test
+    void lessCharacters(){
+        ClientAuth auth = new ClientAuth(new clientInfo("konke", "buthelezi", "sibo@gmail.com", "L1@GHE"));
+        assertFalse(auth.passwordIsValid());
+        String answer = output.toString(StandardCharsets.UTF_8).toLowerCase();
+        assertTrue(answer.contains("8"), "does not detect lower case");
+    }
+
     @Test
     void noLowercase(){
         ClientAuth auth = new ClientAuth(new clientInfo("konke", "buthelezi", "sibo@gmail.com", "L1@GHAAE"));

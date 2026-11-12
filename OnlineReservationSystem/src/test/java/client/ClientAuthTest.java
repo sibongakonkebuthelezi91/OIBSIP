@@ -8,7 +8,8 @@ class ClientAuthTest {
 
     @Test
     void noLowercase(){
-
+        ClientAuth auth = new ClientAuth(new clientInfo("konke", "buthelezi", "sibo@gmail.com", "L1@GHAAE"));
+        assertFalse(auth.passwordIsValid());
     }
 
 }

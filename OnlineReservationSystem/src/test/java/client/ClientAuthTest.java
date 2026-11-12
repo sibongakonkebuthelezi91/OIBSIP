@@ -1,5 +1,7 @@
 package client;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -10,26 +12,25 @@ import java.nio.charset.StandardCharsets;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ClientAuthTest {
+    private ByteArrayOutputStream output = new ByteArrayOutputStream();
 
+    @BeforeEach
+    void setUp(){
+        PrintStream customStream = new PrintStream(output, true, StandardCharsets.UTF_8);
+            System.setOut(customStream);
+
+    }
+
+    @AfterEach
+    void breakIt(){
+        System.setOut(System.out);
+    }
     @Test
     void noLowercase(){
         ClientAuth auth = new ClientAuth(new clientInfo("konke", "buthelezi", "sibo@gmail.com", "L1@GHAAE"));
-
-
-        PrintStream stream = System.out;
-
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
-        PrintStream customStream = new PrintStream(output, true, StandardCharsets.UTF_8);
-
-        try{
-            System.setOut(customStream);
-            assertFalse(auth.passwordIsValid());
-        }finally {
-            System.setOut(stream);
-        }
-
+        assertFalse(auth.passwordIsValid());
         String answer = output.toString(StandardCharsets.UTF_8).toLowerCase();
-        assertTrue(answer.contains("lowercase"));
+        assertTrue(answer.contains("lowercase"), "does not detect lower case");
     }
 
 }

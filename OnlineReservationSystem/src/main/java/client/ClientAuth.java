@@ -66,6 +66,7 @@ public class ClientAuth {
         }
         if (!client.getPassword().matches(".*[A-Z].*")){
             System.out.println("Password should atleast contain 1 Uppercase character");
+            return false;
         }
         if(!client.getPassword().matches(".*[@$!%*?&#_-].*")){
             System.out.println("Password should atleast contain 1 special character");

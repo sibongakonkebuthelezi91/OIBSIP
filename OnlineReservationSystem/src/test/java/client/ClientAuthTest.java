@@ -33,4 +33,15 @@ class ClientAuthTest {
         assertTrue(answer.contains("lowercase"), "does not detect lower case");
     }
 
+    @Test
+    void noUppercase(){
+        ClientAuth auth = new ClientAuth(new clientInfo("konke",
+                "buthelezi",
+                "sibo@gmail.com",
+                "l1@fgahr"));
+        assertFalse(auth.passwordIsValid());
+        String answer = output.toString(StandardCharsets.UTF_8).toLowerCase();
+        assertTrue(answer.contains("uppercase"), "does not detect lower case");
+    }
+
 }
